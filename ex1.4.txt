@@ -1,0 +1,7 @@
+(define (a-plus-abs-b a b)
+((if (> b 0) + -) a b))
+
+The above code defines a procedure a-plus-abs-b that takes in two inputs
+a and b. If b is positive, then it does a + b; if b is negative, then
+it performs a - b. Thus, its return value (as indicated by the name) is
+a + |b|.
