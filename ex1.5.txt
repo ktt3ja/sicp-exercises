@@ -1,0 +1,17 @@
+(define (p) (p))
+(define (test x y)
+(if (= x 0) 0 y))
+
+Then he evaluates the expression
+(test 0 (p))
+
+
+In applicative-order evaluation, the argument is reduced as much as possible.
+Since p defines a procedure that does not terminate, the expression
+(test 0 (p)) produces an infinite loop.
+
+On the other hand, in a normal-order evaluation, things are only evaluated
+when they are needed. The expression (test 0 (p)) is substituted by
+(if (= x 0) 0 (p)). Since x equals 0, the procedure thus returns 0.
+Since the control flow never reaches (p), the code is not stuck in an
+infinite loop.
