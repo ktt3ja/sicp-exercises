@@ -1,0 +1,10 @@
+(define (* a b)
+  (define (iter x a b)
+    (cond ((= b 0) x)
+          ((even? b) (iter x (+ a a) (/ b 2)))
+          (else (iter (+ x a) a (- b 1)))))
+  (iter 0 a b))
+
+(* 3 4)
+(* 4 5)
+(* 0 4)
