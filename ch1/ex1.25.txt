@@ -1,0 +1,15 @@
+Alyssa P. Hacker complains that we went to a lot of
+extra work in writing expmod. After all, she says, since we already
+know how to compute exponentials, we could have simply written
+
+(define (expmod base exp m)
+(remainder (fast-expt base exp) m))
+
+Is she correct? Would this procedure serve as well for our fast prime
+tester? Explain.
+
+
+Answer: If we assume unlimited memory size, her code should give the same
+answer as the original expmod procedure. However, it is not efficient
+because the original expmod ensures that intermediate values of the
+recursion do not exceed a certain amount (maybe max{m^2, b^2}).
