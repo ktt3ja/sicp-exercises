@@ -15,16 +15,16 @@
 (define (miller-rabin-test n)
   (define (try-it a)
     (= (expmod a (- n 1) n) 1))
-  (if (<= n 1)
-    #f
-    (try-it (random n))))
+  (try-it (+ 1 (random (- n 1)))))
 
 (define (prime? n)
   (define (try times)
     (cond ((= times 0) true)
           ((miller-rabin-test n) (try (- times 1)))
           (else false)))
-  (try 40))
+  (if (= n 1)
+    #f
+    (try 40)))
 
 
 ; primes
