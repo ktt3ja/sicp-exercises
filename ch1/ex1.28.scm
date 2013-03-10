@@ -15,7 +15,9 @@
 (define (miller-rabin-test n)
   (define (try-it a)
     (= (expmod a (- n 1) n) 1))
-  (try-it (+ 1 (random (- n 1)))))
+  (if (<= n 1)
+    #f
+    (try-it (random n))))
 
 (define (prime? n)
   (define (try times)
